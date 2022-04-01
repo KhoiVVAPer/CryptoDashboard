@@ -3,6 +3,5 @@ import APIUtils from '@utils/apiUtils';
 import {IRequestAction} from 'src/interfaces/IRequestAction';
 
 export async function getCryptoApi(action: IRequestAction) {
-  console.log('getCryptoData -> action', action);
   return APIUtils.get(CRYPTO_URL, {params: {}});
 }

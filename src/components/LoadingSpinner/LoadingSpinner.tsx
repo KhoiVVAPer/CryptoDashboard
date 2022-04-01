@@ -1,7 +1,6 @@
+import React, {FC} from 'react';
 import {BLACK, SUCCESS} from '@constants/colors';
 import {ICON_SIZE_LARGE} from '@constants/common';
-import React from 'react';
-import {FC} from 'react';
 import {ActivityIndicator, View, StyleSheet} from 'react-native';
 
 const LoadingSpinner: FC = () => {
