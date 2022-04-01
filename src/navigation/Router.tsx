@@ -6,7 +6,6 @@ import {
 import {createStackNavigator} from '@react-navigation/stack';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {mainStackScreens, MainStackParamList} from 'screens';
-import RNBootSplash from 'react-native-bootsplash';
 
 export const Stack = createStackNavigator<MainStackParamList>();
 
@@ -18,13 +17,7 @@ export default function Router() {
   const navigationRef = createRef<NavigationContainerRef<RootStackParamList>>();
 
   return (
-    <NavigationContainer
-      ref={navigationRef}
-      onReady={() => {
-        setTimeout(() => {
-          RNBootSplash.hide({fade: true}); // fade
-        }, 2000);
-      }}>
+    <NavigationContainer ref={navigationRef}>
       <SafeAreaProvider>
         <Stack.Navigator>
           {Object.entries({

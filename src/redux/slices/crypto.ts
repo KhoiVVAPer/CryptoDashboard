@@ -39,12 +39,6 @@ const cryptoSlice = createSlice({
       state.isLoading = false;
     },
     loadMoreShowingCryptoData: state => {
-      console.log(
-        'tate.cryptoData.slice(state.take, LIMIT_RECORD_LOAD_LIST_DATA)',
-        state.take,
-        LIMIT_RECORD_LOAD_LIST_DATA,
-        state.cryptoData.slice(state.take, LIMIT_RECORD_LOAD_LIST_DATA),
-      );
       state.cryptoShowingData = [
         ...state.cryptoShowingData,
         ...state.cryptoData.slice(

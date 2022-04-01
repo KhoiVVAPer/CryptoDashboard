@@ -47,6 +47,7 @@
       "@utils/*": ["src/utils/*"],
       "@redux/*": ["src/redux/*"],
       "@constants/*": ["src/constants/*"],
+      "assets/*": ["assets/*"],
       "helpers/*": ["src/helpers/*"],
       "services/*": ["src/services/*"],
       "screens/*": ["src/screens/*"],

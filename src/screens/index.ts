@@ -1,9 +1,14 @@
 import DashboardScreen from './Dashboard/Dashboard.container';
 import {StackNavigationOptions} from '@react-navigation/stack';
 
-const commonOptions: StackNavigationOptions = {
+export const commonOptions: StackNavigationOptions = {
   gestureEnabled: false,
-  headerShown: false,
+  headerShown: true,
+  headerTitleAlign: 'left',
+  headerRightContainerStyle: {
+    alignItems: 'flex-end',
+    marginRight: 20,
+  },
 };
 
 // ======== AUTH STACK

@@ -1,32 +1,35 @@
-import {getCryptoShowingDataState} from '@redux/selectors/crypto';
-import {
-  getCryptoDataRequest,
-  loadMoreShowingCryptoData,
-} from '@redux/slices/crypto';
+import {ItemCrypto} from 'components/CardCrypto/CardCrypto';
 import React, {FC} from 'react';
-import {FlatList, Text} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import {useDispatch, useSelector} from 'react-redux';
+import {FlatList, RefreshControl} from 'react-native';
+import {ICrypto} from 'src/interfaces/ICrypto';
+import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 
-type DashboardViewProps = {};
+type DashboardViewProps = {
+  cryptoData: ICrypto[];
+  isLoading: boolean;
+  onLoadCryptoData: () => void;
+  onLoadMoreCryptoData: () => void;
+};
 
-const DashboardView: FC<DashboardViewProps> = ({}): JSX.Element => {
-  const dispatch = useDispatch();
-  const cryptoData = useSelector(getCryptoShowingDataState);
-
+const DashboardView: FC<DashboardViewProps> = ({
+  cryptoData,
+  isLoading,
+  onLoadCryptoData,
+  onLoadMoreCryptoData,
+}): JSX.Element => {
   return (
     <>
-      <TouchableOpacity onPress={() => dispatch(getCryptoDataRequest())}>
-        <Text>asdasdasdasdasdas</Text>
-      </TouchableOpacity>
       <FlatList
         data={cryptoData}
-        onEndReached={() => dispatch(loadMoreShowingCryptoData())}
+        keyExtractor={(item, index) => `ItemCrypto-${item.firstId}-${index}`}
+        refreshControl={
+          <RefreshControl refreshing={false} onRefresh={onLoadCryptoData} />
+        }
+        onEndReached={onLoadMoreCryptoData}
         onEndReachedThreshold={0.4}
-        renderItem={({item}) => (
-          <Text style={{height: 200}}>{item.askQty}</Text>
-        )}
+        renderItem={({item}) => <ItemCrypto data={item} />}
       />
+      {isLoading && <LoadingSpinner />}
     </>
   );
 };

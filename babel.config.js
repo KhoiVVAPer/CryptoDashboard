@@ -20,6 +20,7 @@ module.exports = {
           '@utils': './src/utils',
           '@redux': './src/redux',
           '@constants': './src/constants',
+          assets: './assets',
           navigation: './src/navigation',
           screens: './src/screens',
           hooks: './src/hooks',
