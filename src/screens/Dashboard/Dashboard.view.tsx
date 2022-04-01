@@ -1,8 +1,9 @@
 import {ItemCrypto} from 'components/CardCrypto/CardCrypto';
 import React, {FC} from 'react';
-import {FlatList, RefreshControl} from 'react-native';
+import {FlatList, RefreshControl, View} from 'react-native';
 import {ICrypto} from 'src/interfaces/ICrypto';
 import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
+import {styles} from './Dashboard.styles';
 
 type DashboardViewProps = {
   cryptoData: ICrypto[];
@@ -18,7 +19,7 @@ const DashboardView: FC<DashboardViewProps> = ({
   onLoadMoreCryptoData,
 }): JSX.Element => {
   return (
-    <>
+    <View style={styles.container}>
       <FlatList
         data={cryptoData}
         keyExtractor={(item, index) => `ItemCrypto-${item.firstId}-${index}`}
@@ -30,7 +31,7 @@ const DashboardView: FC<DashboardViewProps> = ({
         renderItem={({item}) => <ItemCrypto data={item} />}
       />
       {isLoading && <LoadingSpinner />}
-    </>
+    </View>
   );
 };
 

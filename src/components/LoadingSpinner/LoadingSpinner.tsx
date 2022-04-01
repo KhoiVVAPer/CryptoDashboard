@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {BLACK, SUCCESS} from '@constants/colors';
+import {SUCCESS} from '@constants/colors';
 import {ICON_SIZE_LARGE} from '@constants/common';
 import {ActivityIndicator, View, StyleSheet} from 'react-native';
 
@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'space-around',
-    backgroundColor: BLACK,
-    opacity: 0.2,
+    backgroundColor: 'white',
+    opacity: 0.4,
   },
 });
 
